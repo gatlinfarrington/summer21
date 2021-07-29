@@ -1,0 +1,26 @@
+#lang scheme
+(require "project3test.scm")
+
+(define remove-next-to-last
+  (lambda (lst)
+    (cond ((equal? (length lst) 2) (cdr lst))
+          ((equal? (length lst) 1) '())
+          ((null? lst) '())
+          (else (cons (car lst)(remove-next-to-last (cdr lst)))))))
+
+
+
+
+
+
+
+
+
+; Test code
+(test-remove-next-to-last remove-next-to-last)
+(test-slope slope)
+(test-remove-dups remove-dups)
+(test-invert invert)
+(test-insertion-sort insertion-sort)
+(test-eval-poly eval-poly)
+(test-get-poly-fun get-poly-fun)

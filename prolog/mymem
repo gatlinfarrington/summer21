@@ -1,0 +1,21 @@
+mymem(X, [X|Xs]).
+mymem(X, [Y|Ys]) :-
+    mymem(X, Ys).
+    
+flip_three([H1, H2, H3 | T], [H3, H2, H1 | T]).
+
+
+price(shirt, 25).
+price(bananas, 2).
+price(book, 10).
+price(_,0).
+checkout([],0).
+checkout([X|Lst],Total):-
+    price(X,B),
+    checkout(Lst,Total1),
+    Total is Total1 + B.
+    
+even(A):- A mod 2 =\= 1.
+only_evens([],[]).
+only_evens([El|T], NewT)   :- \+even(El), only_evens(T, NewT).
+only_evens([H|T1], [H|T2]) :- even(H), only_evens(T1, T2).
